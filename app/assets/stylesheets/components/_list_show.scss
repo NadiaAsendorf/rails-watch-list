@@ -1,0 +1,35 @@
+.list-header {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-color: #222; // shown when the list has no image
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+
+  h1 {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  p {
+    margin: 0;
+    opacity: 0.8;
+  }
+}
+
+.movie-card {
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  .card-img-top {
+    aspect-ratio: 2 / 3; // poster shape
+    object-fit: cover;
+  }
+}

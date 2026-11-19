@@ -1,0 +1,19 @@
+.carousel {
+  position: relative;
+}
+
+.carousel-item img {
+  height: 500px;
+  object-fit: cover;   // fill the box, crop instead of stretching
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;            // stretch over the whole carousel
+  z-index: 1;          // sit above the slides
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);  // darken every image the same amount
+  color: white;
+}

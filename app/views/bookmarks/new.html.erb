@@ -1,0 +1,29 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+          <h1 class="h3 mb-1">Add a movie</h1>
+          <p class="text-muted mb-4">to <strong><%= @list.name %></strong></p>
+
+          <%= simple_form_for [@list, @bookmark] do |f| %>
+            <%= f.error_notification %>
+            <%= f.association :movie,
+                              label: "Movie",
+                              prompt: "Choose a movie",
+                              collection: Movie.order(:title) %>
+            <%= f.input :comment,
+                        label: "Why this movie?",
+                        placeholder: "At least 6 characters",
+                        input_html: { rows: 3 } %>
+
+            <div class="d-flex justify-content-between align-items-center mt-4">
+              <%= link_to "Cancel", list_path(@list), class: "btn btn-link text-secondary" %>
+              <%= f.button :submit, "Add to list", class: "btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
