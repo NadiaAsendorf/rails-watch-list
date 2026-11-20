@@ -1,4 +1,8 @@
-<% image = list.movies.first&.poster_url || "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" %>
+<% image = if list.photo.attached?
+   cl_image_path(list.photo.key, width: 600, height: 400, crop: :fill, gravity: :auto)
+   else
+   list.movies.first&.poster_url || "https://film-grab.com/wp-content/uploads/2024/01/The-French-Connection-II-14.jpg"
+   end %>
 
 <%= link_to list_path(list),
       class: "card-category",

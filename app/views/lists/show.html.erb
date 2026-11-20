@@ -1,4 +1,9 @@
-<% header_image = @list.image_url.presence || @list.movies.first&.poster_url %>
+
+<% header_image = if @list.photo.attached?
+   cl_image_path(@list.photo.key, width: 1600, height: 500, crop: :fill, gravity: :auto)
+   else
+   @list.movies.first&.poster_url || "https://film-grab.com/wp-content/uploads/2024/01/The-French-Connection-II-14.jpg"
+   end %>
 
 <div class="list-header"
      style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('<%= header_image %>')">
